@@ -1,0 +1,148 @@
+h1 {
+  text-align: center;
+  width: 800px;
+  margin: auto;
+  padding-top: 30px;
+  font-size: 75px;
+}
+
+.progress {
+  width: 95%;
+  margin: 10px;
+}
+
+#event_loc_time {
+  margin-left: 50px;
+}
+
+#separate1 {
+  margin-top: -55px;
+  margin-left: 305px;
+}
+
+#event_tit_des {
+  margin-left: 400px;
+  margin-top: -27px;
+}
+
+#separate2 {
+  margin-left: 695px;
+  margin-top: -27px;
+}
+
+#add_resources {
+  margin-left: 800px;
+  margin-top: -27px;
+}
+
+#separate3 {
+  margin-left: 1035px;
+  margin-top: -27px;
+}
+
+#confirmation {
+  margin-left: 1125px;
+  margin-top: -27px;
+}
+
+#progress_txt {
+  margin-left: 50px;
+}
+
+.input-group {
+  width: 40%;
+}
+
+h3 {
+  width: 25%;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+.separators {
+  margin-bottom: 50px;
+}
+
+.event_start {
+  margin-left: 170px;
+  margin-top: 150px;
+  width: 900px;
+}
+
+#event_start_txt {
+  float: left;
+  /* margin-left: 100px; */
+}
+
+#select_date_start {
+  float: left;
+  margin-left: 25px;
+  margin-right: -400px;
+}
+
+.time_portion1 {
+  width: 70%;
+  margin-left: 635px;
+}
+
+.event_end {
+  margin-top: 50px;
+  margin-left: 180px;
+  width: 900px;
+}
+
+#select_date_end {
+  float: left;
+  margin-top: -35px;
+  margin-left: 220px;
+}
+
+.time_portion2 {
+  width: 70%;
+  margin-left: 635px;
+  margin-top: -35px;
+}
+
+.event_location {
+  margin-top: 50px;
+  margin-left: 130px;
+  width: 900px;
+}
+
+.title {
+  margin-top: 55px;
+  margin-left: 200px;
+  width: 900px;
+}
+
+.answer_box {
+  float: left;
+  margin-top: -35px;
+  margin-left: 250px;
+}
+
+.repeat_answers {
+  margin-left: 250px;
+}
+
+.set_up_time {
+  margin-top: -50px;
+  margin-left: 250px;
+}
+
+.take_down_time {
+  margin-left: 250px;
+}
+
+.request_items {
+  margin-left: 250px;
+}
+
+.additional_requests_text {
+  width: 100%;
+}
+
+.book_event {
+  margin-left: 600px;
+  margin-top: 50px;
+}

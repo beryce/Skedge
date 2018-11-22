@@ -22,31 +22,81 @@
       crossorigin="anonymous"
     />
 
+    <!-- Regular CSS file -->
+    <link rel = "stylesheet" href="book_event_style.css"/>
+    <link rel = "stylesheet" href="main_style.css"
+
     <title>Book An Event</title>
   </head>
 
   <body>
+    <!--Navigation bar-->
+      <nav class="navbar fixed-top navbar-expand-lg bg-light">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a class="navbar-brand" href="index.html">Skedge</a>
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="book_an_event.html">Book an Event</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="calendar.html">Calendar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Tutorial</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="profile.html">
+                <img src="profile.png" width="30" height="30" alt="">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    <!--title of the page-->
     <h1>Book an Event</h1>
 
     <!-- Progress bar -->
-    <div class="progress">
+    <h4 id="progress_txt" style="margin-left: 40px; height: 20px;">Progress</h4>
+    <div class="progress" style="width:95%; margin-right: auto; margin-left: auto">
       <div
-        class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+        class="progress-bar bg-danger"
         role="progressbar"
         aria-valuenow="75"
         aria-valuemin="0"
         aria-valuemax="100"
-        style="width: 75%"
+        style="width: 5%"
       ></div>
+      
       <!--
         NEED TO CHANGE AREA OF PROGRESS BAR (AREA THAT SHOWS HOW COMPLETE FORM IS)
       -->
     </div>
 
+    <!--labels on progress bar-->
+    <div class="progress_bar_labels">
+        <h6 id="event_loc_time">Event Location and Time</h6>
+        <h6 id="event_tit_des">Event Title and Description</h6>
+        <h6 id="add_resources">Additional Resources</h6>
+        <!-- <h6 id="separate3">|</h6> -->
+        <h6 id="confirmation">Confirmation</h6>
+    </div>
+
+    <!--bar separators-->
+    <div class="separators">
+        <h6 id="separate1">|</h6>
+        <h6 id="separate2">|</h6>
+        <h6 id="separate3">|</h6>
+    </div>
+    
+
     <!-- Event start -->
-    <div class="event_start">
-      <h3>Event start</h3>
-      <div class="input-group">
+    <div class="event_start title">
+      <h3 id="event_start_txt">Event start</h3>
+      <div class="input-group" id="select_date_start">
         <select
           class="custom-select"
           id="inputGroupSelect04"
@@ -58,12 +108,24 @@
           <option value="3">Three</option>
         </select>
       </div>
+
+      <!-- Time portion -->
+      <div class="time_portion1">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Enter time" aria-label="Recipient's username" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">AM</button>
+            <button class="btn btn-outline-secondary" type="button">PM</button>
+          </div>
+        </div>
+      </div>
     </div>
 
+
     <!-- Event end -->
-    <div class="event_end">
+    <div class="event_end title">
       <h3>Event end</h3>
-      <div class="input-group">
+      <div class="input-group answer_box">
         <select
           class="custom-select"
           id="inputGroupSelect04"
@@ -74,13 +136,24 @@
           <option value="2">Two</option>
           <option value="3">Three</option>
         </select>
+      </div>
+
+      <!-- Time portion -->
+      <div class="time_portion2">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Enter time" aria-label="Recipient's username" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">AM</button>
+            <button class="btn btn-outline-secondary" type="button">PM</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Event location -->
-    <div class="event_location">
+    <div class="event_location title">
       <h3>Event location</h3>
-      <div class="input-group">
+      <div class="input-group answer_box" id="select_location">
         <select
           class="custom-select"
           id="inputGroupSelect04"
@@ -95,9 +168,9 @@
     </div>
 
     <!-- Event name -->
-    <div class="event_name">
+    <div class="event_name title">
       <h3>Event name</h3>
-      <div class="input-group mb-3">
+      <div class="input-group mb-3 answer_box">
         <div class="input-group-prepend"></div>
         <input
           type="text"
@@ -109,9 +182,9 @@
     </div>
 
     <!-- Event type -->
-    <div class="event_type">
+    <div class="event_type title">
       <h3>Event type</h3>
-      <div class="input-group">
+      <div class="input-group answer_box">
         <select
           class="custom-select"
           id="inputGroupSelect04"
@@ -126,9 +199,9 @@
     </div>
 
     <!-- Primary Organization -->
-    <div class="primary_organization">
+    <div class="primary_organization title">
       <h3>Primary Organization</h3>
-      <div class="input-group">
+      <div class="input-group answer_box">
         <select
           class="custom-select"
           id="inputGroupSelect04"
@@ -143,9 +216,9 @@
     </div>
 
     <!-- Expected number of attendees -->
-    <div class="number_of_attendees">
+    <div class="number_of_attendees title">
       <h3>Expected Number of Attendees</h3>
-      <div class="input-group mb-3">
+      <div class="input-group mb-3 answer_box">
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroup-sizing-default">#</span>
         </div>
@@ -159,9 +232,9 @@
     </div>
 
     <!-- Repeating event? -->
-    <div class="repeating_event">
+    <div class="repeating_event title">
       <h3>Repeating Event?</h3>
-      <div class="input-group">
+      <div class="input-group repeat_answers">
         <div class="input-group-prepend">
           <!-- Yes -->
           <div class="input-group-text">
@@ -180,7 +253,7 @@
       </div>
 
       <!-- No -->
-      <div class="input-group">
+      <div class="input-group repeat_answers">
         <div class="input-group-prepend">
           <!-- Yes -->
           <div class="input-group-text">
@@ -201,14 +274,14 @@
 
     <!-- Additional set up/take down time -->
     <!-- What are we going to do with this information? -->
-    <div class="additional_set_up_time">
+    <div class="additional_set_up_time title">
       <h3>Additional Set-up/Take Down Time</h3>
 
       <!-- Set-up -->
       <div class="set_up_time">
-        <h4>Set-up time needed</h4>
+        <h4 id="set_up_time_text">Set-up time needed</h4>
         <div class="input-group mb-3">
-          <div class="input-group-prepend">
+          <div class="input-group-prepend" id="set_up_hours">
             <span class="input-group-text">#</span>
           </div>
           <input
@@ -242,11 +315,11 @@
     </div>
 
     <!-- Additional requests -->
-    <div class="additional_requests">
+    <div class="additional_requests title">
       <h3>Additional Requests</h3>
       <!-- Checkboxes -->
       <!-- Food -->
-      <div class="input-group mb-3">
+      <div class="input-group mb-3 request_items">
         <div class="input-group-prepend">
           <div class="input-group-text">
             <input
@@ -264,7 +337,7 @@
       </div>
 
       <!-- Microphone -->
-      <div class="input-group mb-3">
+      <div class="input-group mb-3 request_items">
         <div class="input-group-prepend">
           <div class="input-group-text">
             <input
@@ -282,7 +355,7 @@
       </div>
 
       <!-- Alcohol -->
-      <div class="input-group mb-3">
+      <div class="input-group mb-3 request_items">
         <div class="input-group-prepend">
           <div class="input-group-text">
             <input
@@ -300,7 +373,7 @@
       </div>
 
       <!-- Additional requests -->
-      <div class="additional_requests_text">
+      <div class="additional_requests_text request_items">
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text">Additional requests</span>
@@ -311,7 +384,7 @@
     </div>
 
       <!-- Book event button -->
-      <button type="button" class="btn btn-primary btn-lg">Book event!</button>
+      <button type="button" class="btn btn-primary btn-lg book_event">Book event!</button>
     </html>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
