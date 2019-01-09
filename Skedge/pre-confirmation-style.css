@@ -1,0 +1,36 @@
+#details {
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+#event_info {
+    margin-right: 650px;
+    margin-top: 25px;
+    text-align: right;
+}
+
+#buttons {
+    margin-left: 305px;
+    margin-top: 50px;
+    margin-right: 225px;
+}
+
+#cancel {
+    float: left;
+    margin-left: 305px;
+}
+
+#continue {
+    float: right;
+}
+
+#edit {
+    margin-bottom: -50px;
+
+}
+
+#answers {
+    margin-right: 200px;
+    margin-top: -297px;
+    float: right;
+}

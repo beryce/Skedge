@@ -1,0 +1,294 @@
+<!--
+  Description: This is the code for the Book An Event page that allows users to book their events
+-->
+<!-- Created by: Beryce -->
+<!-- Last updated: December 9, 2018 -->
+<!-- Notes from Kealani: Updated date and time pickers, changed wording for additional 
+requests to be more explanatory -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous" />
+
+    <!-- Regular CSS file -->
+    <link rel="stylesheet" href="book_event_style.css" />
+    <link rel="stylesheet" href="main_style.css">
+
+    <!-- JQuery CSS -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
+    <link rel="stylesheet" href="https://jonthornton.github.io/jquery-timepicker/jquery.timepicker.css">
+
+    <!-- Page title -->
+    <title>Book An Event</title>
+</head>
+
+<body>
+    <!--Navigation bar-->
+    <nav class="navbar fixed-top navbar-expand-lg bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="homepage.html">Skedge</a>
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="book_an_event.html">Book an Event</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="calendar.html">Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <img src="profile.png" width="30" height="30" alt="user icon" onclick="myFunction()" class="dropbtn">
+                        <div id="myDropdown" class="dropdown-content">
+                            <p>My Account</p>
+                            <a href="profile.html#upcomingEvents">My Events</a>
+                            <a href="profile.html#requests">Pending Requests</a>
+                            <a href="profile.html#pastEvents">Rebook Event</a>
+                            <a href="index.html">Log out</a>
+                        </div>
+                    </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--title of the page-->
+    <h1>Book an Event</h1>
+
+    <!-- Event name -->
+    <div class="event_name title">
+        <h3>Event name</h3>
+        <div class="input-group mb-3 answer_box">
+            <div class="input-group-prepend"></div>
+            <input type="text" class="form-control" aria-label="Default" id="eventname" aria-describedby="inputGroup-sizing-default"
+                placeholder="Enter Name" />
+        </div>
+    </div>
+
+    <!-- Event start -->
+    <div class="event_start title">
+        <h3 id="event_start_txt">Event start</h3>
+        <div class="input-group" id="select_date_start">
+            <input type="text" class="form-control" id="datepicker_start" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+                placeholder="Enter Start Date" />
+        </div>
+
+        <!-- Time portion -->
+        <div class="time_portion1">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Enter time" id="timepicker_start" aria-label="Recipient's username"
+                    aria-describedby="basic-addon2">
+            </div>
+        </div>
+    </div>
+
+    <!-- Event end -->
+    <div class="event_end title">
+        <h3>Event end</h3>
+        <div class="input-group answer_box">
+            <input type="text" class="form-control" id="datepicker_end" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+                placeholder="Enter End Date" />
+        </div>
+
+        <!-- Time portion -->
+        <div class="time_portion2">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Enter time" id="timepicker_end" aria-label="Recipient's username"
+                    aria-describedby="basic-addon2">
+            </div>
+        </div>
+    </div>
+
+    <!-- Event location -->
+    <div class="event_location title">
+        <h3>Event location</h3>
+        <div class="input-group answer_box" id="select_location">
+            <select class="custom-select" id="location" aria-label="Example select with button addon">
+                <option selected>Select Location</option>
+                <option value="1">Lulu Chow Wang Campus Center</option>
+                <option value="2">Science Center</option>
+                <option value="3">Clapp Library</option>
+                <option value="4">Alumnae Hall</option>
+                <option value="5">Pendleton</option>
+                <option value="6">Jewett</option>
+            </select>
+        </div>
+    </div>
+
+    <!--room location-->
+    <div id="the_room">
+        <div class="input-group answer_box" id="select_location">
+            <select class="custom-select" id="the_room_location" aria-label="Example select with button addon"
+                vplaceholder="Select Room">
+            </select>
+        </div>
+    </div>
+    </div>
+
+
+    <!--Date not available-->
+    <div id="not_avail">
+        <h6>Location is not available at this time.</h6>
+    </div>
+
+    <!--check if date available-->
+    <div id="available">
+        <button type="button" class="btn btn-primary btn-sm" onclick=checkAvailability() id="availability_btn">Check
+            availability</button>
+    </div>
+
+    <!-- Event type -->
+    <div class="event_type title">
+        <h3>Event type</h3>
+        <div class="input-group answer_box">
+            <select class="custom-select" id="type" aria-label="Example select with button addon">
+                <option selected>Select Type</option>
+                <option value="1">Student</option>
+                <option value="2">Department</option>
+                <option value="2">Club/Organization</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Primary Organization -->
+    <div class="primary_organization title">
+        <h3>Primary Organization</h3>
+        <div class="input-group mb-3 answer_box">
+            <div class="input-group-prepend"></div>
+            <input type="text" class="form-control" aria-label="Default" id="organization_name" aria-describedby="inputGroup-sizing-default"
+                placeholder="Enter Organization Name" />
+        </div>
+    </div>
+
+    <!-- Expected number of attendees -->
+    <div class="number_of_attendees title">
+        <h3>Expected Number of Attendees</h3>
+        <div class="input-group mb-3 answer_box">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">#</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" id="numattendees" aria-describedby="inputGroup-sizing-default" />
+        </div>
+    </div>
+
+    <!-- Repeating event? -->
+    <div class="repeating_event title">
+        <h3>Repeating Event?</h3>
+        <div id="repeating_buttons_input">
+            <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
+                <label class="custom-control-label" for="defaultUnchecked">Yes</label>
+            </div>
+
+            <!-- Default checked -->
+            <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="defaultChecked" name="defaultExampleRadios"
+                    checked>
+                <label class="custom-control-label" for="defaultChecked">No</label>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Additional set up/take down time -->
+    <!-- What are we going to do with this information? -->
+    <div class="additional_set_up_time title">
+        <h3>Additional Set-up/Take Down Time</h3>
+
+        <!-- Set-up -->
+        <div class="set_up_time">
+            <h4 id="set_up_time_text">Set-up time needed</h4>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend" id="set_up_hours">
+                    <span class="input-group-text">#</span>
+                </div>
+                <input type="text" class="form-control" id="setuphours" aria-label="Hours" />
+                <div class="input-group-append">
+                    <span class="input-group-text">hours</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Take-down time -->
+        <div class="take_down_time">
+            <h4>Take down time needed</h4>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">#</span>
+                </div>
+                <input type="text" class="form-control" id="takedownhours" aria-label="Hours" />
+                <div class="input-group-append">
+                    <span class="input-group-text">hours</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional requests -->
+    <div class="additional_requests title">
+        <h3>Additional Requests</h3>
+        <!-- Checkboxes -->
+        <div class="request_items title">
+            <div class="checkbox">
+                <label><input type="checkbox" value="" class="checkbox_input">Food/Drinks Accomodation</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" value="" class="checkbox_input">Audio (microphone,speakers etc.)</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" value="" class="checkbox_input">Custodial Assistance</label>
+            </div>
+
+        </div>
+
+        <!-- Additional requests -->
+        <div class="additional_requests_text">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Additional requests</span>
+                </div>
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!--error message-->
+    <div id="error_msg">
+        <h6>Please fill out the required questions.</h6>
+    </div>
+    <!-- Book event button -->
+    <!-- <button type="button" class="btn btn-primary btn-lg book_event">Book event!</button> -->
+    <button class="btn btn-primary btn-lg book_event" id="book_button" onclick=validate()>Book
+        event!</button>
+
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <!-- <script src="book_an_event.js"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://jonthornton.github.io/jquery-timepicker/jquery.timepicker.js"></script>
+    <script src="profile_js.js"></script>
+
+</body>
+
+</html>

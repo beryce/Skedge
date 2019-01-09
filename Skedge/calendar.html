@@ -1,0 +1,677 @@
+<html>
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+
+  <!-- Regular CSS file -->
+  <link rel="stylesheet" href="main_style.css">
+
+  <!-- JQuery CSS -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://jonthornton.github.io/jquery-timepicker/jquery.timepicker.css">
+
+  <!-- Page title -->
+  <title> Skedge Calendar </title>
+</head>
+
+<body>
+  <nav class="navbar fixed-top navbar-expand-lg bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+     <a class="navbar-brand" href="homepage.html">Skedge</a>
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="book_an_event.html">Book an Event</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="calendar.html">Calendar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Tutorial</a>
+        </li>
+        <li class="nav-item">
+          <div class="dropdown">
+            <img src="profile.png" width="30" height="30" alt="user icon" onclick="myFunction()" class="dropbtn">
+            <div id="myDropdown" class="dropdown-content">
+              <p>My Account</p>
+              <a href="profile.html#upcomingEvents">My Events</a>
+              <a href="profile.html#requests">Pending Requests</a>
+              <a href="profile.html#pastEvents">Rebook Event</a>
+              <a href="index.html">Log out</a>
+            </div>
+          </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <h1 id="header"> Availability </h1>
+    </div>
+
+    <div class="row">
+
+      <div class="col-8">
+        <div class="input-group mb-3" id="building-option">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Event Space</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01">
+          <option selected>Choose...</option>
+          <option value="1">Lulu Chow Wang Campus Center</option>
+          <option value="2">Clapp Library</option>
+          <option value="3">Jewett Arts Center</option>
+          <option value="4">Pendleton East</option>
+          <option value="5">Pendleton West</option>
+          <option value="6">Science Center</option>
+          <option value="7">Alumnae Hall</option>
+        </select>
+        </div>
+        <div class="input-group mb-3" id="room-option">
+        </div>
+        
+        <div id="calendar-button-div">
+          <button type="button" class="btn btn-primary btn-sm" id="week-button">Week</button>
+          <button type="button" class="btn btn-primary btn-sm" id="month-button">Month</button>
+        </div>
+
+        <h3 id="calendar-month-name"> December </h3>
+        <table class="table table-bordered" id="calendar-month" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              <th class="th-sm" id="Sunday">Sunday</th>
+              <th class="th-sm" id="Monday">Monday</th>
+              <th class="th-sm" id="Tuesday">Tuesday</th>
+              <th class="th-sm" id="Wednesday">Wednesday</th>
+              <th class="th-sm" id="Thursday">Thursday</th>
+              <th class="th-sm" id="Friday">Friday</th>
+              <th class="th-sm" id="Saturday">Saturday</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="week1-day1"></td>
+              <td id="week1-day2"></td>
+              <td id="week1-day3"></td>
+              <td id="week1-day4"></td>
+              <td id="week1-day5"></td>
+              <td id="week1-day6"></td>
+              <td id="week1-day7"></td>
+            </tr>
+            <tr>
+              <td id="week2-day1"></td>
+              <td id="week2-day2"></td>
+              <td id="week2-day3"></td>
+              <td id="week2-day4"></td>
+              <td id="week2-day5"></td>
+              <td id="week2-day6"></td>
+              <td id="week2-day7"></td>
+            </tr>
+            <tr>
+              <td id="week3-day1"></td>
+              <td id="week3-day2"></td>
+              <td id="week3-day3"></td>
+              <td id="week3-day4"></td>
+              <td id="week3-day5"></td>
+              <td id="week3-day6"></td>
+              <td id="week3-day7"></td>
+            </tr>
+            <tr>
+              <td id="week4-day1"></td>
+              <td id="week4-day2"></td>
+              <td id="week4-day3"></td>
+              <td id="week4-day4"></td>
+              <td id="week4-day5"></td>
+              <td id="week4-day6"></td>
+              <td id="week4-day7"></td>
+            </tr>
+            <tr>
+              <td id="week5-day1"></td>
+              <td id="week5-day2"></td>
+              <td id="week5-day3"></td>
+              <td id="week5-day4"></td>
+              <td id="week5-day5"></td>
+              <td id="week5-day6"></td>
+              <td id="week5-day7"></td>
+            </tr>
+            <tr>
+              <td id="week6-day1"></td>
+              <td id="week6-day2"></td>
+              <td id="week6-day3"></td>
+              <td id="week6-day4"></td>
+              <td id="week6-day5"></td>
+              <td id="week6-day6"></td>
+              <td id="week6-day7"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="table table-bordered table-sm" id="calendar" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="th-sm" id="first-day">Sun Nov 18</th>
+              <th class="th-sm" id="second-day">Mon Nov 19</th>
+              <th class="th-sm" id="third-day">Tues Nov 20</th>
+              <th class="th-sm" id="fourth-day">Wed Nov 21</th>
+              <th class="th-sm" id="fifth-day">Thurs Nov 22</th>
+              <th class="th-sm" id="sixth-day">Fri Nov 23</th>
+              <th class="th-sm" id="seventh-day">Sat Nov 24</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th id="half-hour-12AM">12:00 AM</th>
+              <td id="day1-hr-12AM"></td>
+              <td id="day2-hr-12AM"></td>
+              <td id="day3-hr-12AM"></td>
+              <td id="day4-hr-12AM"></td>
+              <td id="day5-hr-12AM"></td>
+              <td id="day6-hr-12AM"></td>
+              <td id="day7-hr-12AM"></td>
+            </tr>
+            <tr>
+              <th id="half-hour-1230">12:30 AM</th>
+              <td id="day1-hr-1230"></td>
+              <td id="day2-hr-1230"></td>
+              <td id="day3-hr-1230"></td>
+              <td id="day4-hr-1230"></td>
+              <td id="day5-hr-1230"></td>
+              <td id="day6-hr-1230"></td>
+              <td id="day7-hr-1230"></td>
+            </tr>
+            <tr>
+              <th id="half-hour-100">1:00 AM</th>
+              <td id="day1-hr-100"></td>
+              <td id="day2-hr-100"></td>
+              <td id="day3-hr-100"></td>
+              <td id="day4-hr-100"></td>
+              <td id="day5-hr-100"></td>
+              <td id="day6-hr-100"></td>
+              <td id="day7-hr-100"></td>
+            </tr>
+            <tr>
+              <th id="half-hour-130">1:30 AM</th>
+              <td id="day1-hr-130"></td>
+              <td id="day2-hr-130"></td>
+              <td id="day3-hr-130"></td>
+              <td id="day4-hr-130"></td>
+              <td id="day5-hr-130"></td>
+              <td id="day6-hr-130"></td>
+              <td id="day7-hr-130"></td>
+            </tr>
+            <tr>
+              <th id="half-hour-200">2:00 AM</th>
+              <td id="day1-hr-200"></td>
+              <td id="day2-hr-200"></td>
+              <td id="day3-hr-200"></td>
+              <td id="day4-hr-200"></td>
+              <td id="day5-hr-200"></td>
+              <td id="day6-hr-200"></td>
+              <td id="day7-hr-200"></td>
+            </tr>
+            <tr>
+              <th id="half-hour-230">2:30 AM</th>
+              <td id="day1-hr-230"></td>
+              <td id="day2-hr-230"></td>
+              <td id="day3-hr-230"></td>
+              <td id="day4-hr-230"></td>
+              <td id="day5-hr-230"></td>
+              <td id="day6-hr-230"></td>
+              <td id="day7-hr-230"></td>
+            </tr>
+            <tr>
+              <th id="half-hour-300">3:00 AM</th>
+              <td id="day1-hr-300"></td>
+              <td id="day2-hr-300"></td>
+              <td id="day3-hr-300"></td>
+              <td id="day4-hr-300"></td>
+              <td id="day5-hr-300"></td>
+              <td id="day6-hr-300"></td>
+              <td id="day7-hr-300"></td>
+            </tr>
+            <tr>
+              <th id="half-hour-330">3:30 AM</th>
+              <td id="day1-hr-330"></td>
+              <td id="day2-hr-330"></td>
+              <td id="day3-hr-330"></td>
+              <td id="day4-hr-330"></td>
+              <td id="day5-hr-330"></td>
+              <td id="day6-hr-330"></td>
+              <td id="day7-hr-330"></td>
+            </tr>
+            <tr>
+              <th id="half-hour-400">4:00 AM</th>
+              <td id="day1-hr-400"></td>
+              <td id="day2-hr-400"></td>
+              <td id="day3-hr-400"></td>
+              <td id="day4-hr-400"></td>
+              <td id="day5-hr-400"></td>
+              <td id="day6-hr-400"></td>
+              <td id="day7-hr-400"></td>
+            </tr>
+            <tr>
+              <th id="half-hour-430">4:30 AM</th>
+              <td id="day1-hr-430"></td>
+              <td id="day2-hr-430"></td>
+              <td id="day3-hr-430"></td>
+              <td id="day4-hr-430"></td>
+              <td id="day5-hr-430"></td>
+              <td id="day6-hr-430"></td>
+              <td id="day7-hr-430"></td>
+            </tr>
+            <tr>
+              <th id="half-hour-500">5:00 AM</th>
+              <td id="day1-hr-500"></td>
+              <td id="day2-hr-500"></td>
+              <td id="day3-hr-500"></td>
+              <td id="day4-hr-500"></td>
+              <td id="day5-hr-500"></td>
+              <td id="day6-hr-500"></td>
+              <td id="day7-hr-500"></td>
+            </tr>
+            <tr>
+              <th id="half-hour-530">5:30 AM</th>
+              <td id="day1-hr-530"></td>
+              <td id="day2-hr-530"></td>
+              <td id="day3-hr-530"></td>
+              <td id="day4-hr-530"></td>
+              <td id="day5-hr-530"></td>
+              <td id="day6-hr-530"></td>
+              <td id="day7-hr-530"></td>
+            </tr>
+            <tr>
+              <th id="half-hour-600">6:00 AM</th>
+              <td id="day1-hr-600"></td>
+              <td id="day2-hr-600"></td>
+              <td id="day3-hr-600"></td>
+              <td id="day4-hr-600"></td>
+              <td id="day5-hr-600"></td>
+              <td id="day6-hr-600"></td>
+              <td id="day7-hr-600"></td>
+            </tr>
+            <tr>
+              <th id="half-hour-630">6:30 AM</th>
+              <td id="day1-hr-630"></td>
+              <td id="day2-hr-630"></td>
+              <td id="day3-hr-630"></td>
+              <td id="day4-hr-630"></td>
+              <td id="day5-hr-630"></td>
+              <td id="day6-hr-630"></td>
+              <td id="day7-hr-630"></td>
+            </tr>
+            <tr>
+              <th id="half-hour-700">7:00 AM</th>
+              <td id="day1-hr-700"></td>
+              <td id="day2-hr-700"></td>
+              <td id="day3-hr-700"></td>
+              <td id="day4-hr-700"></td>
+              <td id="day5-hr-700"></td>
+              <td id="day6-hr-700"></td>
+              <td id="day7-hr-700"></td>
+            </tr>
+            <tr>
+              <th id="half-hour-730">7:30 AM</th>
+              <td id="day1-hr-730"></td>
+              <td id="day2-hr-730"></td>
+              <td id="day3-hr-730"></td>
+              <td id="day4-hr-730"></td>
+              <td id="day5-hr-730"></td>
+              <td id="day6-hr-730"></td>
+              <td id="day7-hr-730"></td>
+            </tr>
+            <tr>
+              <th id="half-hour1">8:00 AM</th>
+              <td id="day1-hr1"></td>
+              <td id="day2-hr1"></td>
+              <td id="day3-hr1"></td>
+              <td id="day4-hr1"></td>
+              <td id="day5-hr1"></td>
+              <td id="day6-hr1"></td>
+              <td id="day7-hr1"></td>
+            </tr>
+            <tr>
+              <th id="half-hour2">8:30 AM</th>
+              <td id="day1-hr2"></td>
+              <td id="day2-hr2"></td>
+              <td id="day3-hr2"></td>
+              <td id="day4-hr2"></td>
+              <td id="day5-hr2"></td>
+              <td id="day6-hr2"></td>
+              <td id="day7-hr2"></td>
+            </tr>
+            <tr>
+              <th id="half-hour3">9:00 AM</th>
+              <td id="day1-hr3"></td>
+              <td id="day2-hr3"></td>
+              <td id="day3-hr3"></td>
+              <td id="day4-hr3"></td>
+              <td id="day5-hr3"></td>
+              <td id="day6-hr3"></td>
+              <td id="day7-hr3"></td>
+            </tr>
+            <tr>
+              <th id="half-hour4">9:30 AM</th>
+              <td id="day1-hr4"></td>
+              <td id="day2-hr4"></td>
+              <td id="day3-hr4"></td>
+              <td id="day4-hr4"></td>
+              <td id="day5-hr4"></td>
+              <td id="day6-hr4"></td>
+              <td id="day7-hr4"></td>
+            </tr>
+            <tr>
+              <th id="half-hour5">10:00 AM</th>
+              <td id="day1-hr5"></td>
+              <td id="day2-hr5"></td>
+              <td id="day3-hr5"></td>
+              <td id="day4-hr5"></td>
+              <td id="day5-hr5"></td>
+              <td id="day6-hr5"></td>
+              <td id="day7-hr5"></td>
+            </tr>
+            <tr>
+              <th id="half-hour6">10:30 AM</th>
+              <td id="day1-hr6"></td>
+              <td id="day2-hr6"></td>
+              <td id="day3-hr6"></td>
+              <td id="day4-hr6"></td>
+              <td id="day5-hr6"></td>
+              <td id="day6-hr6"></td>
+              <td id="day7-hr6"></td>
+            </tr>
+            <tr>
+              <th id="half-hour7">11:00 AM</th>
+              <td id="day1-hr7"></td>
+              <td id="day2-hr7"></td>
+              <td id="day3-hr7"></td>
+              <td id="day4-hr7"></td>
+              <td id="day5-hr7"></td>
+              <td id="day6-hr7"></td>
+              <td id="day7-hr7"></td>
+            </tr>
+            <tr>
+              <th id="half-hour8">11:30 AM</th>
+              <td id="day1-hr8"></td>
+              <td id="day2-hr8"></td>
+              <td id="day3-hr8"></td>
+              <td id="day4-hr8"></td>
+              <td id="day5-hr8"></td>
+              <td id="day6-hr8"></td>
+              <td id="day7-hr8"></td>
+            </tr>
+            <tr>
+              <th id="half-hour9">12:00 PM</th>
+              <td id="day1-hr9"></td>
+              <td id="day2-hr9"></td>
+              <td id="day3-hr9"></td>
+              <td id="day4-hr9"></td>
+              <td id="day5-hr9"></td>
+              <td id="day6-hr9"></td>
+              <td id="day7-hr9"></td>
+            </tr>
+            <tr>
+              <th id="half-hour10">12:30 PM</th>
+              <td id="day1-hr10"></td>
+              <td id="day2-hr10"></td>
+              <td id="day3-hr10"></td>
+              <td id="day4-hr10"></td>
+              <td id="day5-hr10"></td>
+              <td id="day6-hr10"></td>
+              <td id="day7-hr10"></td>
+            </tr>
+            <tr>
+              <th id="half-hour11">1:00 PM</th>
+              <td id="day1-hr11"></td>
+              <td id="day2-hr11"></td>
+              <td id="day3-hr11"></td>
+              <td id="day4-hr11"></td>
+              <td id="day5-hr11"></td>
+              <td id="day6-hr11"></td>
+              <td id="day7-hr11"></td>
+            </tr>
+            <tr>
+              <th id="half-hour12">1:30 PM</th>
+              <td id="day1-hr12"></td>
+              <td id="day2-hr12"></td>
+              <td id="day3-hr12"></td>
+              <td id="day4-hr12"></td>
+              <td id="day5-hr12"></td>
+              <td id="day6-hr12"></td>
+              <td id="day7-hr12"></td>
+            </tr>
+            <tr>
+              <th id="half-hour13">2:00 PM</th>
+              <td id="day1-hr13"></td>
+              <td id="day2-hr13"></td>
+              <td id="day3-hr13"></td>
+              <td id="day4-hr13"></td>
+              <td id="day5-hr13"></td>
+              <td id="day6-hr13"></td>
+              <td id="day7-hr13"></td>
+            </tr>
+            <tr>
+              <th id="half-hour14">2:30 PM</th>
+              <td id="day1-hr14"></td>
+              <td id="day2-hr14"></td>
+              <td id="day3-hr14"></td>
+              <td id="day4-hr14"></td>
+              <td id="day5-hr14"></td>
+              <td id="day6-hr14"></td>
+              <td id="day7-hr14"></td>
+            </tr>
+            <tr>
+              <th id="half-hour15">3:00 PM</th>
+              <td id="day1-hr15"></td>
+              <td id="day2-hr15"></td>
+              <td id="day3-hr15"></td>
+              <td id="day4-hr15"></td>
+              <td id="day5-hr15"></td>
+              <td id="day6-hr15"></td>
+              <td id="day7-hr15"></td>
+            </tr>
+            <tr>
+              <th id="half-hour16">3:30 PM</th>
+              <td id="day1-hr16"></td>
+              <td id="day2-hr16"></td>
+              <td id="day3-hr16"></td>
+              <td id="day4-hr16"></td>
+              <td id="day5-hr16"></td>
+              <td id="day6-hr16"></td>
+              <td id="day7-hr16"></td>
+            </tr>
+            <tr>
+              <th id="half-hour17">4:00 PM</th>
+              <td id="day1-hr17"></td>
+              <td id="day2-hr17"></td>
+              <td id="day3-hr17"></td>
+              <td id="day4-hr17"></td>
+              <td id="day5-hr17"></td>
+              <td id="day6-hr17"></td>
+              <td id="day7-hr17"></td>
+            </tr>
+            <tr>
+              <th id="half-hour18">4:30 PM</th>
+              <td id="day1-hr18"></td>
+              <td id="day2-hr18"></td>
+              <td id="day3-hr18"></td>
+              <td id="day4-hr18"></td>
+              <td id="day5-hr18"></td>
+              <td id="day6-hr18"></td>
+              <td id="day7-hr18"></td>
+            </tr>
+            <tr>
+              <th id="half-hour19">5:00 PM</th>
+              <td id="day1-hr19"></td>
+              <td id="day2-hr19"></td>
+              <td id="day3-hr19"></td>
+              <td id="day4-hr19"></td>
+              <td id="day5-hr19"></td>
+              <td id="day6-hr19"></td>
+              <td id="day7-hr19"></td>
+            </tr>
+            <tr>
+              <th id="half-hour20">5:30 PM</th>
+              <td id="day1-hr20"></td>
+              <td id="day2-hr20"></td>
+              <td id="day3-hr20"></td>
+              <td id="day4-hr20"></td>
+              <td id="day5-hr20"></td>
+              <td id="day6-hr20"></td>
+              <td id="day7-hr20"></td>
+            </tr>
+            <tr>
+              <th id="half-hour21">6:00 PM</th>
+              <td id="day1-hr21"></td>
+              <td id="day2-hr21"></td>
+              <td id="day3-hr21"></td>
+              <td id="day4-hr21"></td>
+              <td id="day5-hr21"></td>
+              <td id="day6-hr21"></td>
+              <td id="day7-hr21"></td>
+            </tr>
+            <tr>
+              <th id="half-hour22">6:30 PM</th>
+              <td id="day1-hr22"></td>
+              <td id="day2-hr22"></td>
+              <td id="day3-hr22"></td>
+              <td id="day4-hr22"></td>
+              <td id="day5-hr22"></td>
+              <td id="day6-hr22"></td>
+              <td id="day7-hr22"></td>
+            </tr>
+            <tr>
+              <th id="half-hour23">7:00 PM</th>
+              <td id="day1-hr23"></td>
+              <td id="day2-hr23"></td>
+              <td id="day3-hr23"></td>
+              <td id="day4-hr23"></td>
+              <td id="day5-hr23"></td>
+              <td id="day6-hr23"></td>
+              <td id="day7-hr23"></td>
+            </tr>
+            <tr>
+              <th id="half-hour24">7:30 PM</th>
+              <td id="day1-hr24"></td>
+              <td id="day2-hr24"></td>
+              <td id="day3-hr24"></td>
+              <td id="day4-hr24"></td>
+              <td id="day5-hr24"></td>
+              <td id="day6-hr24"></td>
+              <td id="day7-hr24"></td>
+            </tr>
+            <tr>
+              <th id="half-hour25">8:00 PM</th>
+              <td id="day1-hr25"></td>
+              <td id="day2-hr25"></td>
+              <td id="day3-hr25"></td>
+              <td id="day4-hr25"></td>
+              <td id="day5-hr25"></td>
+              <td id="day6-hr25"></td>
+              <td id="day7-hr25"></td>
+            </tr>
+            <tr>
+              <th id="half-hour26">8:30 PM</th>
+              <td id="day1-hr26"></td>
+              <td id="day2-hr26"></td>
+              <td id="day3-hr26"></td>
+              <td id="day4-hr26"></td>
+              <td id="day5-hr26"></td>
+              <td id="day6-hr26"></td>
+              <td id="day7-hr26"></td>
+            </tr>
+            <tr>
+              <th id="half-hour27">9:00 PM</th>
+              <td id="day1-hr27"></td>
+              <td id="day2-hr27"></td>
+              <td id="day3-hr27"></td>
+              <td id="day4-hr27"></td>
+              <td id="day5-hr27"></td>
+              <td id="day6-hr27"></td>
+              <td id="day7-hr27"></td>
+            </tr>
+            <tr>
+              <th id="half-hour28">9:30 PM</th>
+              <td id="day1-hr28"></td>
+              <td id="day2-hr28"></td>
+              <td id="day3-hr28"></td>
+              <td id="day4-hr28"></td>
+              <td id="day5-hr28"></td>
+              <td id="day6-hr28"></td>
+              <td id="day7-hr28"></td>
+            </tr>
+            <tr>
+              <th id="half-hour29">10:00 PM</th>
+              <td id="day1-hr29"></td>
+              <td id="day2-hr29"></td>
+              <td id="day3-hr29"></td>
+              <td id="day4-hr29"></td>
+              <td id="day5-hr29"></td>
+              <td id="day6-hr29"></td>
+              <td id="day7-hr29"></td>
+            </tr>
+            <tr>
+              <th id="half-hour30">10:30 PM</th>
+              <td id="day1-hr30"></td>
+              <td id="day2-hr30"></td>
+              <td id="day3-hr30"></td>
+              <td id="day4-hr30"></td>
+              <td id="day5-hr30"></td>
+              <td id="day6-hr30"></td>
+              <td id="day7-hr30"></td>
+            </tr>
+            <tr>
+              <th id="half-hour31">11:00 PM</th>
+              <td id="day1-hr31"></td>
+              <td id="day2-hr31"></td>
+              <td id="day3-hr31"></td>
+              <td id="day4-hr31"></td>
+              <td id="day5-hr31"></td>
+              <td id="day6-hr31"></td>
+              <td id="day7-hr31"></td>
+            </tr>
+            <tr>
+              <th id="half-hour32">11:30 PM</th>
+              <td id="day1-hr32"></td>
+              <td id="day2-hr32"></td>
+              <td id="day3-hr32"></td>
+              <td id="day4-hr32"></td>
+              <td id="day5-hr32"></td>
+              <td id="day6-hr32"></td>
+              <td id="day7-hr32"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-4">
+        <h3 id="events_c"> Events at: <span id="space-input"> </span></h3>
+        <div id='book-item_c'>
+        </div>
+        <div id="events-available">
+          <div class='event-item_c' id='error_c'>
+            <p>Click on an available space in the calendar</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="calendar.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://jonthornton.github.io/jquery-timepicker/jquery.timepicker.js"></script>
+  <script src="profile_js.js"></script>
+</body>
+
+</html>

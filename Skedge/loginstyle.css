@@ -1,0 +1,16 @@
+#login_credentials {
+    width: 65%;
+    margin-top: 25px;
+    margin-left: 225px;
+}
+
+.log-in {
+    width: 50%;
+    margin-left: 195px;
+    margin-top: 50px;
+}
+
+#message {
+    margin-left: 250px;
+    display: none;
+}
